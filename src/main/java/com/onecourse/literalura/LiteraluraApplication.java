@@ -1,11 +1,15 @@
 package com.onecourse.literalura;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.onecourse.literalura.model.BookModel;
 import com.onecourse.literalura.services.Connection;
+import com.onecourse.literalura.services.DataConversor;
 import com.onecourse.literalura.services.SearchByTitle;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.List;
 import java.util.Scanner;
 
 @SpringBootApplication
@@ -18,6 +22,7 @@ public class LiteraluraApplication implements CommandLineRunner {
 		Connection cn = new Connection();
 		SearchByTitle search = new SearchByTitle(cn);
 		Scanner scn = new Scanner(System.in);
+		DataConversor dC = new DataConversor();
 		int input;
 		String title;
 		do{
@@ -36,7 +41,9 @@ public class LiteraluraApplication implements CommandLineRunner {
 			if (input == 1){
 				System.out.println("Write the book's title");
 				title = scn.nextLine();
-				System.out.println(search.searchByTitle(title));
+				var json = search.searchByTitle(title);
+				List<BookModel> data = dC.getListData(json, BookModel.class);
+				data.forEach(System.out::println);
 			}
 
 		}while (input != 6);
