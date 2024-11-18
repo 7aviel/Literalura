@@ -8,7 +8,7 @@ import java.util.List;
 
 public class SearchByTitle {
 
-    private Connection connection;
+    private final Connection connection;
     public String searchByTitle(String title){
         List<String> words = new ArrayList<>(Arrays.asList(title.split(" ")));
         StringBuilder queryFormat = new StringBuilder();
