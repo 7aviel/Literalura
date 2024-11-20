@@ -1,7 +1,9 @@
 package com.onecourse.literalura;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onecourse.literalura.model.BookModel;
+import com.onecourse.literalura.model.BookWrapper;
 import com.onecourse.literalura.services.Connection;
 import com.onecourse.literalura.services.DataConversor;
 import com.onecourse.literalura.services.SearchByTitle;
@@ -42,7 +44,8 @@ public class LiteraluraApplication implements CommandLineRunner {
 				System.out.println("Write the book's title");
 				title = scn.nextLine();
 				var json = search.searchByTitle(title);
-				List<BookModel> data = dC.getListData(json, BookModel.class);
+				List<BookModel> data = dC.getListData(json, new TypeReference<>() {
+                });
 				data.forEach(System.out::println);
 			}
 
