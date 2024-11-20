@@ -44,7 +44,7 @@ public class LiteraluraApplication implements CommandLineRunner {
 				System.out.println("Write the book's title");
 				title = scn.nextLine();
 				var json = search.searchByTitle(title);
-				List<BookModel> data = dC.getListData(json, new TypeReference<>() {
+				List<BookModel> data = dC.getData(json, new TypeReference<>() {
                 });
 				data.forEach(System.out::println);
 			}
