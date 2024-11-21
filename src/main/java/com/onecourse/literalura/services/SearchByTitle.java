@@ -1,11 +1,13 @@
 package com.onecourse.literalura.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Service
 public class SearchByTitle {
 
     private final Connection connection;
@@ -16,7 +18,7 @@ public class SearchByTitle {
         return this.connection.JSONResponse("https://gutendex.com/books/?search="+ queryFormat);
     }
 
-
+    @Autowired
     public SearchByTitle(Connection connection) {
         this.connection = connection;
     }
