@@ -7,6 +7,7 @@ import com.onecourse.literalura.persistence.repositories.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -35,4 +36,13 @@ public class AuthorService {
         author.setDeathYear(authorModel.deathYear());
         return author;
     }
+
+    public List<AuthorEntity> getAuthors() {
+        return authorRepository.findAll();
+    }
+
+    public List<AuthorEntity> getAuthorsByYear(Integer year){
+        return authorRepository.getAuthorEntitiesByBirthYear(year);
+    }
+
 }

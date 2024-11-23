@@ -32,5 +32,14 @@ public class SaveEntitiesService {
         return author;
     }
 
+    public List<BookEntity> getBookList(){
+        return bookService.getBooks();
+    }
+
+    public List<AuthorEntity> getAuthorList(){
+        return authorService.getAuthors();
+    }
+
+
 }
 

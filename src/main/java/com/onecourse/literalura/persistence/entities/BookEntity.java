@@ -16,18 +16,19 @@ public class BookEntity {
     private Long id;
     private String title;
     @OneToOne(mappedBy = "book")
+    @JsonBackReference
     private AuthorEntity author;
     private String language;
     private Integer downloads;
 
     @Override
     public String toString() {
-        return "------------ BOOK -----------------" +
-                "   ID: " + id +
-                ", TITLE: '" + title + '\'' +
-                ", AUTHOR: " + author +
-                ", LANG: '" + language + '\'' +
-                ", DOWNLOADS: " + downloads +
-                "-----------------------------------";
+        return  "------------ BOOK ------------\n" +
+                "  ID: " + id +"\n"+
+                " TITLE: '" + title + "'\n" +
+                " AUTHOR: " + author.getName() + "\n"+
+                " LANG: '" + language + "'\n" +
+                " DOWNLOADS: " + downloads + "\n" +
+                "------------------------------";
     }
 }

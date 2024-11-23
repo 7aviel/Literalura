@@ -34,6 +34,13 @@ public class BookService {
         return bookEntity;
     }
 
+    public List<BookEntity> getBooks(){
+       return this.bookRepository.findAll();
+    }
+
+    public List<BookEntity> getBooksByLang(String lang){
+        return this.bookRepository.getBookEntitiesByLanguage(lang);
+    }
 
 
 }

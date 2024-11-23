@@ -18,7 +18,16 @@ public class AuthorEntity {
     private Integer birthYear;
     private Integer deathYear;
     @OneToOne
+    @JsonManagedReference
     private BookEntity book;
 
-
+    @Override
+    public String toString() {
+        return  "---------- AUTHOR ----------\n" +
+                " ID: '" + id +"'\n"+
+                " NAME: '" + name + "' \n" +
+                " BIRTH YEAR: " + birthYear +"\n"+
+                " DEATH YEAR: " + deathYear +"\n"+
+                "----------------------------";
+    }
 }
