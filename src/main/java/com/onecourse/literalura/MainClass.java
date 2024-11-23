@@ -3,7 +3,7 @@ package com.onecourse.literalura;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.onecourse.literalura.persistence.model.BookModel;
 import com.onecourse.literalura.services.DataConversor;
-import com.onecourse.literalura.services.SaveBookService;
+import com.onecourse.literalura.services.SaveEntitiesService;
 import com.onecourse.literalura.services.SearchByTitle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,12 +14,12 @@ import java.util.Scanner;
 @Component
 public class MainClass {
 
-    private final SaveBookService bookService;
+    private final SaveEntitiesService bookService;
     private final SearchByTitle searchByTitle;
     private final DataConversor dataConversor;
 
     @Autowired
-    public MainClass(SaveBookService bookService, SearchByTitle searchByTitle, DataConversor dataConversor) {
+    public MainClass(SaveEntitiesService bookService, SearchByTitle searchByTitle, DataConversor dataConversor) {
         this.bookService = bookService;
         this.searchByTitle = searchByTitle;
         this.dataConversor = dataConversor;

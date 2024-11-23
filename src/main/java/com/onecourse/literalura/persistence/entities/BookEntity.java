@@ -15,17 +15,10 @@ public class BookEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    @OneToOne
+    @OneToOne(mappedBy = "book")
     private AuthorEntity author;
     private String language;
     private Integer downloads;
-
-    public BookEntity(BookModel bookModel, AuthorEntity author){
-        this.title = bookModel.title();
-        this.author = author;
-        this.language = bookModel.languages().get(0);
-        this.downloads = bookModel.downloads();
-    }
 
     @Override
     public String toString() {
