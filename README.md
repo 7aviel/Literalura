@@ -24,7 +24,6 @@
 
    ```sh
    git clone https://github.com/yourusername/literalura.git
-   cd literalura
    ```
 
 2. Build the project using Maven:
