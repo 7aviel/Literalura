@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface AuthorRepository extends JpaRepository<AuthorEntity, Long> {
 
@@ -20,4 +21,6 @@ public interface AuthorRepository extends JpaRepository<AuthorEntity, Long> {
     @Query("SELECT a FROM AuthorEntity a WHERE a.deathYear > :year AND a.birthYear < :year")
     List<AuthorEntity> getAuthorEntitiesByBirthYear(@Param("year") Integer year);
 
+    @Query("SELECT a FROM AuthorEntity a WHERE a.name = :name")
+    Optional<AuthorEntity> getAuthorByName(@Param("name") String name);
 }

@@ -13,12 +13,10 @@ import java.util.List;
 public class BookService {
 
     private final BookRepository bookRepository;
-    private final AuthorService authorService;
 
     @Autowired
     public BookService(BookRepository bookRepository, AuthorService authorService) {
         this.bookRepository = bookRepository;
-        this.authorService = authorService;
     }
 
     public void saveBook(BookEntity bookEntity) {

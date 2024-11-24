@@ -1,5 +1,6 @@
 package com.onecourse.literalura.services;
 
+import com.fasterxml.jackson.annotation.OptBoolean;
 import com.onecourse.literalura.persistence.entities.AuthorEntity;
 import com.onecourse.literalura.persistence.entities.BookEntity;
 import com.onecourse.literalura.persistence.model.BookModel;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SaveEntitiesService {
@@ -30,6 +32,18 @@ public class SaveEntitiesService {
         AuthorEntity author = authorService.convertToEntity(bookModel.authors().get(0));
         authorService.saveAuthor(author);
         return author;
+    }
+
+    public boolean authorExists(List<BookModel> bookModels) {
+        if (bookModels == null || bookModels.isEmpty()) {
+            return false; // Return false if the list is null or empty
+        }
+        AuthorEntity author = authorService.convertToEntity(bookModels.get(0).authors().get(0));
+        return authorService.getByName(author.getName()).isPresent();
+    }
+
+    public boolean bookExist(List<BookModel> bookModels){
+        return bookModels.isEmpty();
     }
 
     public List<BookEntity> getBookList(){

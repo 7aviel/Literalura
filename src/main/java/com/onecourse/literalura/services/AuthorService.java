@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -43,6 +42,10 @@ public class AuthorService {
 
     public List<AuthorEntity> getAuthorsByYear(Integer year){
         return authorRepository.getAuthorEntitiesByBirthYear(year);
+    }
+
+    public Optional<AuthorEntity> getByName(String name){
+        return authorRepository.getAuthorByName(name);
     }
 
 }

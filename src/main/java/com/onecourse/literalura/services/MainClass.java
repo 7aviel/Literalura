@@ -1,4 +1,4 @@
-package com.onecourse.literalura;
+package com.onecourse.literalura.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.onecourse.literalura.persistence.model.BookModel;
@@ -6,6 +6,7 @@ import com.onecourse.literalura.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,9 +31,9 @@ public class MainClass {
 
     public void mainClass(){
         Scanner scn = new Scanner(System.in);
-        int input;
-        String title;
+        Integer input = null;
         String lang;
+        boolean validInput=false;
         int year;
         do{
             System.out.println("----------------------------------");
@@ -44,17 +45,33 @@ public class MainClass {
             System.out.println("5. List books by language");
             System.out.println("6. Exit");
             System.out.println("----------------------------------");
-            input = scn.nextInt();
+            validInput=false;
+            while (!validInput) {
+                System.out.print("Please enter a number: ");
+                try {
+                input = scn.nextInt(); // Attempt to read an integer
+                validInput = true; // If successful, set the flag to true
+                } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scn.next();// Clear the invalid input
+                }
+            }
             scn.nextLine();
-
             switch (input){
                 case 1:
                     System.out.println("Write the book's title");
-                    title = scn.nextLine();
-                    var json = searchByTitle.searchByTitle(title);
+                    var json = searchByTitle.searchByTitle(scn.nextLine());
                     List<BookModel> data = dataConversor.getData(json, new TypeReference<>() {});
-                    data.forEach(System.out::println);
-                    this.saveEntitiesService.saveBook(data);
+                    data.forEach(System.out::println);// -> This line prints data from the API
+                    if (this.saveEntitiesService.bookExist(data)) {
+                        System.out.println("Book not found in the API response");
+                        break;
+                    }else if(this.saveEntitiesService.authorExists(data)) {
+                        System.out.print("Book already exists in database.\n Choose another one \n");
+                        break;
+                    }else {
+                        this.saveEntitiesService.saveBook(data);
+                    }
                     break;
                 case 2:
                     this.saveEntitiesService.getBookList().forEach(System.out::println);
@@ -64,10 +81,14 @@ public class MainClass {
                     break;
                 case 4:
                     System.out.println("Provide the year");
-                    year = scn.nextInt();
-                    scn.nextLine();
-                    this.authorService.getAuthorsByYear(year).forEach(System.out::println);
-                    break;
+                    try {
+                        year = scn.nextInt();
+                        scn.nextLine();
+                        this.authorService.getAuthorsByYear(year).forEach(System.out::println);
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a valid year.");
+                        scn.next(); // Clear the invalid input
+                    } break;
                 case 5:
                     System.out.println("Provide a language \n -en \n -es");
                     lang = scn.nextLine();
@@ -75,5 +96,6 @@ public class MainClass {
                     break;
             }
         } while (input != 6);
+        scn.close();
     }
 }
