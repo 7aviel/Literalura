@@ -17,6 +17,7 @@
 - Java 11 or higher
 - Maven
 - [Gutendex API](https://github.com/garethbjohnson/gutendex?tab=readme-ov-file).
+- PostgreSQL local database
 
 ### Installation
 
