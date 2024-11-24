@@ -2,7 +2,6 @@ package com.onecourse.literalura.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.onecourse.literalura.persistence.model.BookModel;
-import com.onecourse.literalura.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -33,7 +32,7 @@ public class MainClass {
         Scanner scn = new Scanner(System.in);
         Integer input = null;
         String lang;
-        boolean validInput=false;
+        boolean validInput;
         int year;
         do{
             System.out.println("----------------------------------");
