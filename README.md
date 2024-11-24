@@ -16,7 +16,7 @@
 
 - Java 11 or higher
 - Maven
-- A third-party API key for fetching book data
+- [Gutendex API](https://github.com/garethbjohnson/gutendex?tab=readme-ov-file), or any other third-party API key for fetching book data
 
 ### Installation
 
