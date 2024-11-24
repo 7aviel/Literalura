@@ -23,7 +23,7 @@
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/literalura.git
+   git clone https://github.com/7aviel/Literalura.git
    ```
 
 2. Build the project using Maven:
