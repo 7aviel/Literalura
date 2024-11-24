@@ -1,6 +1,6 @@
 # Literalura
 
-**Literalura** is a Java-based application that interacts with a third-party API Gutendex to fetch book data and store it in a local database. Users can search for books by title, list registered books and authors, and perform various queries on the stored data.
+**Literalura** is a simple Java-based application that interacts with a third-party API Gutendex to fetch book data and store it in a local database. Users can search for books by title, list registered books and authors, and perform various queries on the stored data.
 
 ## Features
 
