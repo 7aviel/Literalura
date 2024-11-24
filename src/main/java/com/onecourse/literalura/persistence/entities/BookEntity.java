@@ -1,7 +1,6 @@
 package com.onecourse.literalura.persistence.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.onecourse.literalura.persistence.model.BookModel;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

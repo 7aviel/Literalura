@@ -1,6 +1,5 @@
 package com.onecourse.literalura.services;
 
-import com.fasterxml.jackson.annotation.OptBoolean;
 import com.onecourse.literalura.persistence.entities.AuthorEntity;
 import com.onecourse.literalura.persistence.entities.BookEntity;
 import com.onecourse.literalura.persistence.model.BookModel;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class SaveEntitiesService {

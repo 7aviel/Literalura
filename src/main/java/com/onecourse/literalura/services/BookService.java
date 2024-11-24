@@ -1,6 +1,5 @@
 package com.onecourse.literalura.services;
 
-import com.onecourse.literalura.persistence.entities.AuthorEntity;
 import com.onecourse.literalura.persistence.entities.BookEntity;
 import com.onecourse.literalura.persistence.model.BookModel;
 import com.onecourse.literalura.persistence.repositories.BookRepository;
