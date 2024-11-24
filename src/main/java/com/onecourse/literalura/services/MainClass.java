@@ -62,7 +62,6 @@ public class MainClass {
                     System.out.println("Write the book's title");
                     var json = searchByTitle.searchByTitle(scn.nextLine());
                     List<BookModel> data = dataConversor.getData(json, new TypeReference<>() {});
-                    data.forEach(System.out::println);// -> This line prints data from the API
                     if (this.saveEntitiesService.bookExist(data)) {
                         System.out.println("Book not found in the API response");
                         break;
