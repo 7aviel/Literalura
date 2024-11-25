@@ -1,7 +1,3 @@
-Sure thing! I'll add a section with the steps for contributing to your project:
-
----
-
 # Literalura
 
 **Literalura** is a simple Java-based application that interacts with Gutendex's API to fetch book data and store it in a local database. Users can search for books by title, list registered books and authors, and perform various queries on the stored data.
