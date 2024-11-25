@@ -1,10 +1,14 @@
+Sure thing! I'll add a section with the steps for contributing to your project:
+
+---
+
 # Literalura
 
 **Literalura** is a simple Java-based application that interacts with Gutendex's API to fetch book data and store it in a local database. Users can search for books by title, list registered books and authors, and perform various queries on the stored data.
 
 ## Features
 
-- **Search Book by Title**: Fetches book data from a third-party API based on the provided title and saves it to the local database.
+- **Search Book by Title**: Fetches book data from Gutendex API based on the provided title and saves it to the local database.
 - **List Registered Books**: Displays all books currently stored in the database.
 - **List Registered Authors**: Displays all authors currently stored in the database.
 - **List Authors Alive by Year**: Lists authors who were alive in a specific year.
@@ -14,7 +18,7 @@
 
 ### Prerequisites
 
-- Java 11 or higher
+- Java 17 or higher
 - Maven
 - [Gutendex API](https://github.com/garethbjohnson/gutendex?tab=readme-ov-file).
 - PostgreSQL local database
@@ -62,8 +66,41 @@ Here is an example of how to use the application:
 
 ## Contributing
 
+We welcome contributions to enhance the functionality and fix issues in Literalura. Here's how you can contribute:
+
+1. **Fork the Repository**: Click the "Fork" button on the top right of the repository page to create a copy of the repository in your GitHub account.
+
+2. **Clone Your Fork**: Clone your forked repository to your local machine using the following command:
+   ```sh
+   git clone https://github.com/yourusername/Literalura.git
+   cd Literalura
+   ```
+
+3. **Create a Branch**: Create a new branch for your feature or bugfix:
+   ```sh
+   git checkout -b feature-or-bugfix-name
+   ```
+
+4. **Make Your Changes**: Implement your changes or new features. Ensure your code follows the project's coding standards and includes appropriate tests.
+
+5. **Commit Your Changes**: Commit your changes with a clear and descriptive commit message:
+   ```sh
+   git add .
+   git commit -m "Description of the feature or fix"
+   ```
+
+6. **Push to Your Fork**: Push your changes to your forked repository:
+   ```sh
+   git push origin feature-or-bugfix-name
+   ```
+
+7. **Create a Pull Request**: Go to the original repository and click on the "New Pull Request" button. Select your branch and submit the pull request, providing a detailed description of your changes.
+
+8. **Review Process**: Your pull request will be reviewed by the project maintainers. Be ready to make any requested changes and engage in discussions to ensure your contribution aligns with the project goals.
+
+9. **Merge**: Once your pull request is approved, it will be merged into the main repository.
+
 If you have suggestions for improvements or find any bugs, feel free to create an issue or submit a pull request. Contributions are welcome!
 
-## License
-
-This project is licensed under the MIT License.
+## Contact me:
+vilcheariel1@gmail.com
